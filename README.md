@@ -17,3 +17,12 @@ php artisan migrate
 # 6. Jalankan server Laravel
 php artisan serve
 # Akses aplikasi di: http://127.0.0.1:8000
+
+## Contoh API
+
+### GET & POST
+![GET & POST](public/images/get & post.png)
+
+### UPDATE & DELETE
+![UPDATE & DELETE](public/images/update & delete.png)
+
