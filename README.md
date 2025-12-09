@@ -21,8 +21,8 @@ php artisan serve
 ## Contoh API
 
 ### GET & POST
-![GET & POST](public/images/get & post.png)
+![GET & POST](public/images/get_post.png)
 
 ### UPDATE & DELETE
-![UPDATE & DELETE](public/images/update & delete.png)
+![UPDATE & DELETE](public/images/update_delete.png)
 
