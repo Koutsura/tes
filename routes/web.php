@@ -10,5 +10,5 @@ Route::get('/', function () {
 Route::get('/tes', [TesController::class, 'index']);
 Route::get('/tes/create', [TesController::class, 'create']);
 Route::post('/tes/store', [TesController::class, 'store'])->name('tes.store');
-Route::post('/tes/update/{id}', [TesController::class, 'update']);
-Route::get('/tes/destroy/{id}', [TesController::class, 'destroy']);
+Route::post('/tes/update/{id}', [TesController::class, 'update'])->name('tes.edit');
+Route::delete('/tes/destroy/{id}', [TesController::class, 'destroy'])->name('tes.delete');

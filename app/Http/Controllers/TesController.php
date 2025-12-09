@@ -37,14 +37,14 @@ class TesController extends Controller
     {
         $pasien = Pasien::find($id);
         $pasien->update($request->all());
-        return redirect('/tes');
+        return view('index');
     }
 
     public function destroy($id)
     {
         $pasien = Pasien::find($id);
         $pasien->delete();
-        return redirect('/tes');
+        return view('create');
     }
     //
 }

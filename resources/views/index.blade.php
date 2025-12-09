@@ -28,6 +28,7 @@
                 <tr>
                     <th scope="col">Nama</th>
                     <th scope="col">tanggal lahir</th>
+                    <th scope="col">ubah atau hapus</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,14 @@
                     <tr>
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->tgl_lahir }}</td>
+                        <td class="text-center">
+                            <a href="{{ route('tes.edit', $item->id) }}" class="btn btn-sm btn-outline-primary me-1">Edit</a>
+                            <form action="{{ route('tes.delete', $item->id) }}" method="POST" style="display: inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
