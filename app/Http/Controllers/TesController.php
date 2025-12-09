@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\pasien;
+use App\Models\Pasien;
 
 class TesController extends Controller
 {
@@ -26,12 +26,9 @@ class TesController extends Controller
         'tgl_lahir' => 'required|date',
     ]);
 
-    $pasien = Pasien::create([
-        'nama' => $request->nama,
-        'tgl_lahir' => $request->tgl_lahir,
-        /* 'created_by' => auth()->id(),
-        'updated_by' => auth()->id(), */
-    ]);
+     $pasien= new Pasien();
+        $pasien->nama= $request['nama'];
+        $pasien->tgl_lahir= $request['tgl_lahir'];
         $pasien->save();
         return view('create');
     }
