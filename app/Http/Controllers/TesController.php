@@ -32,6 +32,12 @@ class TesController extends Controller
         $pasien->save();
         return view('create');
     }
+    
+    public function edit($id)
+    {
+        $pasien = Pasien::find($id);
+        return view('edit');
+    }
 
     public function update(Request $request, $id)
     {
