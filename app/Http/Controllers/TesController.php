@@ -22,7 +22,7 @@ class TesController extends Controller
     public function store(Request $request)
     {
         $request->validate([   
-        'name' => 'required|string|max:255',
+        'nama' => 'required|string|max:255',
         'tgl_lahir' => 'required|date',
     ]);
 
