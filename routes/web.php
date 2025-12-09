@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/tes');
 });
 
 Route::get('/tes', [TesController::class, 'index']);
