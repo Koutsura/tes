@@ -21,9 +21,19 @@ class TesController extends Controller
     
     public function store(Request $request)
     {
-        Pasien::create($request->all());
-        
-        return redirect('/tes');
+        $request->validate([   
+        'name' => 'required|string|max:255',
+        'tgl_lahir' => 'required|date',
+    ]);
+
+    $pasien = Pasien::create([
+        'nama' => $request->nama,
+        'tgl_lahir' => $request->tgl_lahir,
+        /* 'created_by' => auth()->id(),
+        'updated_by' => auth()->id(), */
+    ]);
+        $pasien->save();
+        return view('create');
     }
 
     public function update(Request $request, $id)

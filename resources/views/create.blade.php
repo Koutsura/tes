@@ -11,7 +11,8 @@
         <a href="/tes">Kembali</a>
     </div>
     <div class ="form container">
-        <form action="" method="POST">
+<form action="{{ route('tes.store') }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="nama"> nama : </label>
                 <input type="text" name="nama" id="nama" class="form-control">
