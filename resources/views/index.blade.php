@@ -37,7 +37,7 @@
                         <td>{{ $item->nama }}</td>
                         <td>{{ $item->tgl_lahir }}</td>
                         <td class="text-center">
-                            <a href="{{ route('tes.edit', $item->id) }}" class="btn btn-sm btn-outline-primary me-1">Edit</a>
+                           <a href="{{ route('tes.edit', $item->id) }}" class="btn btn-sm btn-outline-primary me-1">Edit</a>
                             <form action="{{ route('tes.delete', $item->id) }}" method="POST" style="display: inline-block;">
                                 @csrf
                                 @method('DELETE')

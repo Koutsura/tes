@@ -18,10 +18,10 @@ class TesController extends Controller
 
         return view('create');
     }
-    
+
     public function store(Request $request)
     {
-        $request->validate([   
+        $request->validate([
         'nama' => 'required|string|max:255',
         'tgl_lahir' => 'required|date',
     ]);
@@ -30,27 +30,38 @@ class TesController extends Controller
         $pasien->nama= $request['nama'];
         $pasien->tgl_lahir= $request['tgl_lahir'];
         $pasien->save();
-        return view('create');
+        return redirect('/tes')->with('success', 'Data berhasil ditambahkan!');
     }
-    
+
     public function edit($id)
     {
-        $pasien = Pasien::find($id);
-        return view('edit');
+    $pasien = Pasien::findOrFail($id);
+    return view('edit', compact('pasien'));
     }
+
 
     public function update(Request $request, $id)
     {
-        $pasien = Pasien::find($id);
-        $pasien->update($request->all());
-        return view('index');
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'tgl_lahir' => 'required|date'
+    ]);
+
+    $pasien = Pasien::findOrFail($id);
+    $pasien->update([
+        'nama' => $request->nama,
+        'tgl_lahir' => $request->tgl_lahir,
+    ]);
+
+    return redirect('/tes')->with('success', 'Data berhasil diupdate!');
     }
+
 
     public function destroy($id)
     {
         $pasien = Pasien::find($id);
         $pasien->delete();
-        return view('create');
+        return redirect('/tes')->with('success', 'Data berhasil dihapus!');
     }
     //
 }
